@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DishWise</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/logo-1.png') }}" alt="Logo" class="logo">
+            <div>
+                <h1>Welcome to the DishWise</h1>
+                <p class="tagline">Smart Pricing for Every Plate</p>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="{{ url_for('static', filename='images/img-1.jpeg') }}" alt="Image 1">
+                <div class="text-overlay">
+                    <h2>Your Journey to <span>Smart Pricing</span> Starts Here!</h2>
+                    <p>Find the best prices for your favorite dishes and locate ingredients nearby.</p>
+                    <button class="scroll-btn" onclick="scrollToForm()">Try Now</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{{ url_for('static', filename='images/img-2.jpeg') }}" alt="Image 2">
+                <div class="text-overlay">
+                    <h2>Your Journey to <span>Smart Pricing</span> Starts Here!</h2>
+                    <p>Find the best prices for your favorite dishes and locate ingredients nearby.</p>
+                    <button class="scroll-btn" onclick="scrollToForm()">Try Now</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{{ url_for('static', filename='images/img-3.jpeg') }}" alt="Image 3">
+                <div class="text-overlay">
+                    <h2>Your Journey to <span>Smart Pricing</span> Starts Here!</h2>
+                    <p>Find the best prices for your favorite dishes and locate ingredients nearby.</p>
+                    <button class="scroll-btn" onclick="scrollToForm()">Try Now</button>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{{ url_for('static', filename='images/img-4.jpeg') }}" alt="Image 4">
+                <div class="text-overlay">
+                    <h2>Your Journey to <span>Smart Pricing</span> Starts Here!</h2>
+                    <p>Find the best prices for your favorite dishes and locate ingredients nearby.</p>
+                    <button class="scroll-btn" onclick="scrollToForm()">Try Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <div class="card card-1">
+            <h3>Key Features</h3>
+            <ul>
+                <li>Real-Time Price Estimation</li>
+                <li>Customizable Input</li>
+                <li>Scalable</li>
+                <li>Flexible Unit Conversion</li>
+            </ul>
+        </div>
+        <div class="card card-2">
+            <h3>Why Choose DishWise AI?</h3>
+            <ul>
+                <li>Data-Driven Decisions</li>
+                <li>Adaptability</li>
+                <li>Market Simulation</li>
+                <li>User-Friendly Integration</li>
+            </ul>
+        </div>
+        <div class="card card-3">
+            <h3>Future Scopes</h3>
+            <ul>
+                <li>Global Commodity Expansion</li>
+                <li>Real-Time Market Integration</li>
+                <li>AI-Driven Procurement</li>
+                <li>Strategic Partnerships</li>
+            </ul>
+        </div>
+    </div>    
+    
+
+    <main>
+        <section class="form-section">
+            <h2>Estimate your dish cost & locate ingredients nearby</h2>
+            <form id="priceForm" onsubmit="submitForm(event)" action="/predict" method="POST">
+                <div class="input-group">
+                    <label for="district">Current District</label>
+                    <select id="district" name="district" required>
+                        <option value="" disabled selected>Select your district</option>
+                        <option value="Ariyalur">Ariyalur</option>
+                        <option value="Chengalpattu">Chengalpattu</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Coimbatore">Coimbatore</option>
+                        <option value="Cuddalore">Cuddalore</option>
+                        <option value="Dharmapuri">Dharmapuri</option>
+                        <option value="Dindigul">Dindigul</option>
+                        <option value="Erode">Erode</option>
+                        <option value="Kallakuruchi">Kallakuruchi</option>
+                        <option value="Kancheepuram">Kancheepuram</option>
+                        <option value="Karur">Karur</option>
+                        <option value="Krishnagiri">Krishnagiri</option>
+                        <option value="Madurai">Madurai</option>
+                        <option value="Nagapattinam">Nagapattinam</option>
+                        <option value="Nagercoil (Kanniyakumari)">Nagercoil (Kanniyakumari)</option>
+                        <option value="Namakkal">Namakkal</option>
+                        <option value="Perambalur">Perambalur</option>
+                        <option value="Pudukottai">Pudukottai</option>
+                        <option value="Ramanathapuram">Ramanathapuram</option>
+                        <option value="Ranipet">Ranipet</option>
+                        <option value="Salem">Salem</option>
+                        <option value="Sivaganga">Sivaganga</option>
+                        <option value="Tenkasi">Tenkasi</option>
+                        <option value="Thanjavur">Thanjavur</option>
+                        <option value="The Nilgiris">The Nilgiris</option>
+                        <option value="Theni">Theni</option>
+                        <option value="Thiruchirappalli">Thiruchirappalli</option>
+                        <option value="Thirunelveli">Thirunelveli</option>
+                        <option value="Thirupathur">Thirupathur</option>
+                        <option value="Thirupur">Thirupur</option>
+                        <option value="Thiruvannamalai">Thiruvannamalai</option>
+                        <option value="Thiruvarur">Thiruvarur</option>
+                        <option value="Thiruvellore">Thiruvellore</option>
+                        <option value="Tuticorin">Tuticorin</option>
+                        <option value="Vellore">Vellore</option>
+                        <option value="Villupuram">Villupuram</option>
+                        <option value="Virudhunagar">Virudhunagar</option>
+
+                        <!-- Add more options here -->
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="commodity">Commodity Name</label>
+                    <select id="commodity" name="commodity">
+                        <option value="" disabled selected>Select a commodity</option>
+                        <optgroup label="Amaranthus">
+                            <option value="Amaranthus">Amaranthus</option>
+                        </optgroup>
+                        <optgroup label="Apple">
+                            <option value="American">American</option>
+                        </optgroup>
+                        <optgroup label="Ashgourd">
+                            <option value="Gouard">Gouard</option>
+                        </optgroup>
+                        <optgroup label="Banana">
+                            <option value="Besrai">Besrai</option>
+                            <option value="Other">Other</option>
+                            <option value="Poovan">Poovan</option>
+                            <option value="Red Banana">Red Banana</option>
+                            <option value="Robusta">Robusta</option>
+                        </optgroup>
+                        <optgroup label="Banana - Green">
+                            <option value="Banana - Green">Banana - Green</option>
+                        </optgroup>
+                        <optgroup label="Beans">
+                            <option value="Beans (Whole)">Beans (Whole)</option>
+                        </optgroup>
+                        <optgroup label="Beetroot">
+                            <option value="Beetroot">Beetroot</option>
+                        </optgroup>
+                        <optgroup label="Bitter gourd">
+                            <option value="Bitter Gourd">Bitter Gourd</option>
+                        </optgroup>
+                        <optgroup label="Bottle gourd">
+                            <option value="Bottle Gourd">Bottle Gourd</option>
+                        </optgroup>
+                        <optgroup label="Brinjal">
+                            <option value="Arkasheela Mattigulla">Arkasheela Mattigulla</option>
+                            <option value="Brinjal">Brinjal</option>
+                            <option value="Round">Round</option>
+                        </optgroup>
+                        <optgroup label="Cabbage">
+                            <option value="Cabbage">Cabbage</option>
+                        </optgroup>
+                        <optgroup label="Capsicum">
+                            <option value="Capsicum">Capsicum</option>
+                        </optgroup>
+                        <optgroup label="Carrot">
+                            <option value="Pusakesar">Pusakesar</option>
+                        </optgroup>
+                        <optgroup label="Castor Seed">
+                            <option value="Caster">Caster</option>
+                            <option value="Castor seed">Castor seed</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Cauliflower">
+                            <option value="Ranchi">Ranchi</option>
+                        </optgroup>
+                        <optgroup label="Chili Red">
+                            <option value="Bold">Bold</option>
+                            <option value="Other">Other</option>
+                            <option value="Red">Red</option>
+                        </optgroup>
+                        <optgroup label="Chow Chow">
+                            <option value="Chow Chow">Chow Chow</option>
+                        </optgroup>
+                        <optgroup label="Cluster beans">
+                            <option value="Cluster Beans">Cluster Beans</option>
+                        </optgroup>
+                        <optgroup label="Coconut">
+                            <option value="Big">Big</option>
+                            <option value="Coconut">Coconut</option>
+                            <option value="Grade- II">Grade- II</option>
+                            <option value="Grade-I">Grade-I</option>
+                            <option value="Grade-III">Grade-III</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Other">Other</option>
+                            <option value="Small">Small</option>
+                        </optgroup>
+                        <optgroup label="Coconut Seed">
+                            <option value="Coconut Seed">Coconut Seed</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Copra">
+                            <option value="Ball">Ball</option>
+                            <option value="Copra">Copra</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Milling Copra">Milling Copra</option>
+                            <option value="Small">Small</option>
+                            <option value="other">other</option>
+                        </optgroup>
+                        <optgroup label="Cotton">
+                            <option value="170-C2  (Ginned)">170-C2  (Ginned)</option>
+                            <option value="170-CO2 (Unginned)">170-CO2 (Unginned)</option>
+                            <option value="A-51-9 24mm. FIne">A-51-9 24mm. FIne</option>
+                            <option value="Bunny">Bunny</option>
+                            <option value="Cotton (Ginned)">Cotton (Ginned)</option>
+                            <option value="Cotton (Unginned)">Cotton (Unginned)</option>
+                            <option value="DCH-32  (Ginned)">DCH-32  (Ginned)</option>
+                            <option value="DCH-32(Unginned)">DCH-32(Unginned)</option>
+                            <option value="Desi">Desi</option>
+                            <option value="GCH">GCH</option>
+                            <option value="LD-491">LD-491</option>
+                            <option value="LRA">LRA</option>
+                            <option value="LRA  (Ginned)">LRA  (Ginned)</option>
+                            <option value="Local">Local</option>
+                            <option value="MCU">MCU</option>
+                            <option value="MCU 5">MCU 5</option>
+                            <option value="MCU-7">MCU-7</option>
+                            <option value="Other">Other</option>
+                            <option value="RCH-2">RCH-2</option>
+                            <option value="Surabi">Surabi</option>
+                            <option value="Varalaxmi">Varalaxmi</option>
+                        </optgroup>
+                        <optgroup label="Cowpea (Lobia/Karamani)">
+                            <option value="Cowpea (W-S)">Cowpea (W-S)</option>
+                            <option value="Cowpea (Whole)">Cowpea (Whole)</option>
+                            <option value="Jawari/Local">Jawari/Local</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Custard Apple (Sharifa)">
+                            <option value="Custard Apple(Sharifa)">Custard Apple(Sharifa)</option>
+                        </optgroup>
+                        <optgroup label="Drumstick">
+                            <option value="Drumstick">Drumstick</option>
+                        </optgroup>
+                        <optgroup label="Dry Chillies">
+                            <option value="1st Sort">1st Sort</option>
+                            <option value="Dry Chillies">Dry Chillies</option>
+                            <option value="Fine 2">Fine 2</option>
+                            <option value="Local">Local</option>
+                            <option value="Other">Other</option>
+                            <option value="Red">Red</option>
+                            <option value="Red Top">Red Top</option>
+                        </optgroup>
+                        <optgroup label="Elephant Yam (Suran)">
+                            <option value="Elephant Yam (Suran)">Elephant Yam (Suran)</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Garlic">
+                            <option value="Average">Average</option>
+                        </optgroup>
+                        <optgroup label="Gingelly Oil">
+                            <option value="Gingelly Oil">Gingelly Oil</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Grapes">
+                            <option value="Annabesahai">Annabesahai</option>
+                        </optgroup>
+                        <optgroup label="Green Avare (W)">
+                            <option value="Avare (W)">Avare (W)</option>
+                        </optgroup>
+                        <optgroup label="Green Chilli">
+                            <option value="Green Chilly">Green Chilly</option>
+                        </optgroup>
+                        <optgroup label="Green Gram Dal (Moong Dal)">
+                            <option value="Green Gram Dal">Green Gram Dal</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Green Peas">
+                            <option value="Green Peas">Green Peas</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Ground Nut Oil">
+                            <option value="Ground Nut Oil">Ground Nut Oil</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Ground Nut Seed">
+                            <option value="Ground Nut Seed">Ground Nut Seed</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Groundnut">
+                            <option value="Balli/Habbu">Balli/Habbu</option>
+                            <option value="Big (With Shell)">Big (With Shell)</option>
+                            <option value="Bold">Bold</option>
+                            <option value="Bold Kernel">Bold Kernel</option>
+                            <option value="DMV-7">DMV-7</option>
+                            <option value="Groundnut seed">Groundnut seed</option>
+                            <option value="Gungri (With Shell)">Gungri (With Shell)</option>
+                            <option value="Hybrid">Hybrid</option>
+                            <option value="JL-24">JL-24</option>
+                            <option value="Local">Local</option>
+                            <option value="Other">Other</option>
+                            <option value="Seed">Seed</option>
+                            <option value="TMV-2">TMV-2</option>
+                            <option value="VRI - 1">VRI - 1</option>
+                        </optgroup>
+                        <optgroup label="Groundnut (Split)">
+                            <option value="Groundnut(Split)">Groundnut(Split)</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Groundnut pods (raw)">
+                            <option value="Groundnut pods (raw)">Groundnut pods (raw)</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Guava">
+                            <option value="Guava Alahabad">Guava Alahabad</option>
+                        </optgroup>
+                        <optgroup label="Hybrid Cumbu">
+                            <option value="Hybrid Cumbu">Hybrid Cumbu</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Indian Beans (Seam)">
+                            <option value="Indian Beans (Seam)">Indian Beans (Seam)</option>
+                        </optgroup>
+                        <optgroup label="Jack Fruit">
+                            <option value="Jack Fruit">Jack Fruit</option>
+                        </optgroup>
+                        <optgroup label="Jasmine">
+                            <option value="Jasmine">Jasmine</option>
+                        </optgroup>
+                        <optgroup label="Kakada">
+                            <option value="Kakada">Kakada</option>
+                        </optgroup>
+                        <optgroup label="Karamani">
+                            <option value="Karamani">Karamani</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Knool Khol">
+                            <option value="Knool Khol">Knool Khol</option>
+                        </optgroup>
+                        <optgroup label="Lemon">
+                            <option value="Lemon">Lemon</option>
+                        </optgroup>
+                        <optgroup label="Lime">
+                            <option value="Lime">Lime</option>
+                        </optgroup>
+                        <optgroup label="Maize">
+                            <option value="Deshi Red">Deshi Red</option>
+                            <option value="Deshi White">Deshi White</option>
+                            <option value="Fine">Fine</option>
+                            <option value="Hybrid">Hybrid</option>
+                            <option value="Hybrid Red (Cattle Feed)">Hybrid Red (Cattle Feed)</option>
+                            <option value="Hybrid Yellow (Cattle Feed)">Hybrid Yellow (Cattle Feed)</option>
+                            <option value="Hybrid/Local">Hybrid/Local</option>
+                            <option value="Local">Local</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Megha">Megha</option>
+                            <option value="Other">Other</option>
+                            <option value="Prakash">Prakash</option>
+                            <option value="Red">Red</option>
+                            <option value="White Local">White Local</option>
+                            <option value="Yellow">Yellow</option>
+                        </optgroup>
+                        <optgroup label="Mango">
+                            <option value="Safeda">Safeda</option>
+                        </optgroup>
+                        <optgroup label="Mango (Raw-Ripe)">
+                            <option value="Mango - Raw-Ripe">Mango - Raw-Ripe</option>
+                        </optgroup>
+                        <optgroup label="Moath Dal">
+                            <option value="Moath (W)">Moath (W)</option>
+                        </optgroup>
+                        <optgroup label="Onion">
+                            <option value="Bellary">Bellary</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Nasik">Nasik</option>
+                            <option value="Onion">Onion</option>
+                            <option value="Other">Other</option>
+                            <option value="Small">Small</option>
+                        </optgroup>
+                        <optgroup label="Onion Green">
+                            <option value="Onion Green">Onion Green</option>
+                        </optgroup>
+                        <optgroup label="Orange">
+                            <option value="Darjeeling">Darjeeling</option>
+                        </optgroup>
+                        <optgroup label="Papaya">
+                            <option value="Papaya">Papaya</option>
+                        </optgroup>
+                        <optgroup label="Pineapple">
+                            <option value="Pine Apple">Pine Apple</option>
+                        </optgroup>
+                        <optgroup label="Pomegranate">
+                            <option value="Pomogranate">Pomogranate</option>
+                        </optgroup>
+                        <optgroup label="Potato">
+                            <option value="(Red Nanital)">(Red Nanital)</option>
+                            <option value="Badshah">Badshah</option>
+                            <option value="Jyoti">Jyoti</option>
+                        </optgroup>
+                        <optgroup label="Pumpkin">
+                            <option value="Pumpkin">Pumpkin</option>
+                        </optgroup>
+                        <optgroup label="Raddish">
+                            <option value="Other">Other</option>
+                            <option value="Raddish">Raddish</option>
+                        </optgroup>
+                        <optgroup label="Ragi (Finger Millet)">
+                            <option value="Feeds (Poultry Quality)">Feeds (Poultry Quality)</option>
+                            <option value="Fine">Fine</option>
+                            <option value="Local">Local</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Medium Fine">Medium Fine</option>
+                            <option value="Other">Other</option>
+                            <option value="Red">Red</option>
+                        </optgroup>
+                        <optgroup label="Soyabean">
+                            <option value="Black">Black</option>
+                            <option value="Local">Local</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Spinach">
+                            <option value="Spinach">Spinach</option>
+                        </optgroup>
+                        <optgroup label="Sugarcane">
+                            <option value="Other">Other</option>
+                            <option value="Sugarcane">Sugarcane</option>
+                        </optgroup>
+                        <optgroup label="Sweet Potato">
+                            <option value="Hosur Red">Hosur Red</option>
+                        </optgroup>
+                        <optgroup label="T.V. Cumbu">
+                            <option value="Other">Other</option>
+                            <option value="T.V. Cumbu">T.V. Cumbu</option>
+                        </optgroup>
+                        <optgroup label="Tamarind Fruit">
+                            <option value="Chapathi">Chapathi</option>
+                            <option value="Other">Other</option>
+                            <option value="Seedless 1Variety">Seedless 1Variety</option>
+                            <option value="Seedless 2Variety">Seedless 2Variety</option>
+                            <option value="Tamarind Fruit">Tamarind Fruit</option>
+                            <option value="With Seed 1Variety">With Seed 1Variety</option>
+                            <option value="With Seed 2Variety">With Seed 2Variety</option>
+                        </optgroup>
+                        <optgroup label="Tamarind Seed">
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Tapioca">
+                            <option value="Other">Other</option>
+                            <option value="Tapioca">Tapioca</option>
+                        </optgroup>
+                        <optgroup label="Tender Coconut">
+                            <option value="Tender Coconut">Tender Coconut</option>
+                        </optgroup>
+                        <optgroup label="Thinai (Italian Millet)">
+                            <option value="Other">Other</option>
+                            <option value="Thinai (Italian Millet)">Thinai (Italian Millet)</option>
+                        </optgroup>
+                        <optgroup label="Thondekai">
+                            <option value="Thondekai">Thondekai</option>
+                        </optgroup>
+                        <optgroup label="Tobacco">
+                            <option value="Other">Other</option>
+                            <option value="Verginia">Verginia</option>
+                        </optgroup>
+                        <optgroup label="Tomato">
+                            <option value="Deshi">Deshi</option>
+                            <option value="Other">Other</option>
+                        </optgroup>
+                        <optgroup label="Tube Flower">
+                            <option value="Tube Flower">Tube Flower</option>
+                        </optgroup>
+                        <optgroup label="Turmeric">
+                            <option value="Bulb">Bulb</option>
+                            <option value="Finger">Finger</option>
+                            <option value="Other">Other</option>
+                            <option value="Turmeric">Turmeric</option>
+                        </optgroup>
+                        <optgroup label="Turnip">
+                            <option value="Turnip">Turnip</option>
+                        </optgroup>
+                        <optgroup label="Water Melon">
+                            <option value="Other">Other</option>
+                            <option value="Water Melon">Water Melon</option>
+                        </optgroup>
+                        <optgroup label="Yam (Ratalu)">
+                            <option value="Yam (Ratalu)">Yam (Ratalu)</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" name="amount" min="1" placeholder="Enter amount (in kg)">
+                </div>
+
+
+                <div class="input-group">
+                    <label for="month">Enter the future month : </label>
+                    <input type="number" id="month"  min="1" max="12" placeholder="Enter month (1-12)">
+                </div>
+
+                <div class="input-group">
+                    <label for="year">Enter the future year : </label>
+                    <input type="number" id="year"  min="1900" max="2200" placeholder="Enter year">
+                </div>
+
+                <button type="submit" class="submit-button">Predict Price & Locate</button>
+            </form>
+        </section>
+
+
+        <section id="results-section" >
+            <h3>Prediction & Price Suggestions</h3>
+        
+            <!-- Predicted price card -->
+            <div id="price-result" class="result-card">
+                <h4>Predicted Price</h4>
+                <p id="predicted-price">Predicted price will be shown here</p>
+            </div>
+        
+            <!-- Location suggestion card -->
+            <div id="location-result" class="result-card">
+                <h4>Nearby Districts for <span id="commodity-name"></span></h4>
+                <p>Available in the following nearby districts:</p>
+                <ul id="location-list">
+                    <!-- Location list dynamically populated here -->
+                </ul>
+            </div>
+        
+            <!-- Price suggestions card -->
+            <div id="suggestions-result" class="result-card">
+                <h4>Price Suggestions for <span id="amount-display"></span></h4>
+                <ul id="price-suggestions-list">
+                    <!-- Price suggestions dynamically populated here -->
+                </ul>
+            </div>
+        </section>
+        
+    </main>
+    <script>
+        function scrollToForm() {
+            document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+        
+            // Get form data
+            const district = document.getElementById('district').value;
+            const commodity = document.getElementById('commodity').value;
+            const variety = document.getElementById('variety').value;
+            const amount = document.getElementById('amount').value;
+            const month = document.getElementById('month').value;
+            const year = document.getElementById('year').value;
+        
+            if (!district || !commodity || !variety || !amount || !month || !year) {
+                alert("Please fill in all fields.");
+                return;
+            }
+        
+            // Prepare the data to send
+            const data = {
+                district,
+                commodity,
+                variety,
+                amount,
+                month,
+                year
+            };
+        
+            // Send data to Flask
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.error) {
+                    console.error(result.error);
+                    alert('Error: ' + result.error);
+                    return;
+                }
+        
+                // Process and display results
+                // Populate predicted price, nearby districts, etc.
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error: ' + error.message);
+            });
+        }
+        
+    </script>
+</body>
+</html>
