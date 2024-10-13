@@ -10,7 +10,7 @@ College students face challenges in determining investment and menu pricing due 
 
 Using an AI model, DishWise predicts ingredient prices based on district, commodity, and time, and suggests the best buying month and nearby districts with lower costs to improve financial planning.
 
-## How we solve the problem?
+## How do we solve the problem?
 
 ### Data Collection
 
@@ -42,12 +42,12 @@ We utilized a diverse set of technologies, which can be categorized into three p
 - *RandomizedSearchCV*: A tool for optimizing hyperparameters effectively.
 - *OneAPI*: The star technology that enhances performance and scalability.
 
-## Why we choose OneAPI?
+## Why did we choose OneAPI?
 
-OneAPI is a powerful tool for machine learning projects that can help developers achieve better performance and code portability. With its optimized libraries, performance tools, and unified programming model, OneAPI can speed up training and improve inference performance, while simplifying development by enabling developers to write code that can run on different hardware platforms.
+OneAPI is a powerful tool for machine learning projects that can help developers achieve better performance and code portability. With its optimized libraries, performance tools, and unified programming model, OneAPI can speed up training and improve inference performance. It also simplifies development by enabling developers to write code that can run on different hardware platforms.
 
 ### Its key benefits include:
-- *Accelerating training* on hardware accelerators, such as GPUs or FPGAs.
+- *Accelerating training* on hardware accelerators like GPUs or FPGAs.
 - *Improving inference performance* on various hardware platforms, which can reduce latency and improve throughput.
 - *Increasing code portability* by enabling developers to write code that can run on different hardware architectures.
 - *Optimizing performance* with performance tools that can help developers improve the performance of their code.
@@ -55,6 +55,17 @@ OneAPI is a powerful tool for machine learning projects that can help developers
 
 ### Benchmarks
 
-Using OneAPI in our project provided us with around a 2% uplift in accuracy. This may seem like a tiny improvement, but on larger datasets, this will impact accuracy on a larger scale.
+Using OneAPI in our project gave us an ultimate uplift in timetaken. This may seem like a tiny improvement, but on larger datasets, this will impact accuracy on a larger scale.
 
 Note: These benchmarks are taken on machines with identical specs
+
+# WEBSITE
+![Screenshot 2024-10-05 100027](https://github.com/user-attachments/assets/0ebf098b-3c2f-4015-8a54-acf0672374c6)
+![Screenshot 2024-10-05 100920](https://github.com/user-attachments/assets/bcb75b8e-1ac2-40ba-a615-83411dfa17c2)
+![Screenshot 2024-10-05 100928](https://github.com/user-attachments/assets/bfb8b50c-da84-4a3a-a6f4-0af3c5e16931)
+
+# IN INTEL ONE API JUPYTER NOTEBOOK
+![Screenshot 2024-10-13 085157](https://github.com/user-attachments/assets/039a51c4-92f4-4884-9f42-4369da5f6acd)
+
+# IN LOCAL MACHINE
+![Screenshot 2024-10-13 091107](https://github.com/user-attachments/assets/1925bba9-0e27-4280-8319-28b45f9ddbeb)
